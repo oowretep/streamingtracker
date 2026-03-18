@@ -1,0 +1,48 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1773708668990,
+      "tag": "0000_easy_black_knight",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1773717476243,
+      "tag": "0001_short_venom",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1773770658059,
+      "tag": "0002_brave_secret_warriors",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1773770715592,
+      "tag": "0003_mean_justice",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1773789253974,
+      "tag": "0004_stiff_trauma",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1773791330384,
+      "tag": "0005_past_clea",
+      "breakpoints": true
+    }
+  ]
+}
