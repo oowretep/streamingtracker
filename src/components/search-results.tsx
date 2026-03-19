@@ -158,7 +158,10 @@ const SearchResults = ({ results, query }: SearchResultsProps) => {
                 <>
                     <div className='flex flex-col gap-2'>
                         {displayed.map((title) => (
-                            <Link key={title.id} href={`/title/${title.id}`}>
+                            <Link
+                                key={title.id}
+                                href={`/title/${title.id}?from=search&q=${encodeURIComponent(query)}`}
+                            >
                                 <div className='flex items-center gap-4 p-3 rounded-lg border border-border hover:bg-accent hover:shadow-md transition-all cursor-pointer shadow-sm'>
                                     <div className='shrink-0 w-12 h-16 rounded-lg overflow-hidden bg-muted'>
                                         {title.poster ? (

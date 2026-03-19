@@ -57,7 +57,7 @@ interface TitleDetails {
 
 interface TitlePageProps {
     params: Promise<{ id: string }>;
-    searchParams: Promise<{ from?: string }>;
+    searchParams: Promise<{ from?: string; q?: string }>;
 }
 
 const QUALITY_RANK: Record<string, number> = {
@@ -173,7 +173,7 @@ const SourceSection = ({
 
 const TitlePage = async ({ params, searchParams }: TitlePageProps) => {
     const { id } = await params;
-    const { from } = await searchParams;
+    const { from, q } = await searchParams;
 
     const [detailsRes, sourcesRes, upcomingRes] = await Promise.all([
         fetch(`${process.env.BETTER_AUTH_URL}/api/title/${id}/details`, {
@@ -246,6 +246,13 @@ const TitlePage = async ({ params, searchParams }: TitlePageProps) => {
             {from === 'list' ? (
                 <Link
                     href='/watchlist'
+                    className='text-sm text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-1 transition-colors'
+                >
+                    ← Back
+                </Link>
+            ) : from === 'search' && q ? (
+                <Link
+                    href={`/search?q=${encodeURIComponent(q)}`}
                     className='text-sm text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-1 transition-colors'
                 >
                     ← Back
