@@ -41,6 +41,21 @@ export const metadata: Metadata = {
         title: 'Streaming Tracker',
         description: 'Find where to watch your favorite movies and shows.',
         type: 'website',
+        url: 'https://streamingtracker.vercel.app',
+        images: [
+            {
+                url: '../og-image.png',
+                width: 1200,
+                height: 630,
+                alt: 'Streaming Tracker',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Streaming Tracker',
+        description: 'Find where to watch your favorite movies and shows.',
+        images: ['../og-image'],
     },
 };
 
