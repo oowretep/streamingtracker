@@ -38,7 +38,7 @@ const HomepageReleases = async () => {
 
             <div className='grid grid-cols-2 gap-3 sm:grid-cols-4'>
                 {withPosters.map((r) => (
-                    <Link key={r.id} href={`/title/${r.id}`}>
+                    <Link key={r.id} href={`/title/${r.id}?from=releases`}>
                         <div className='rounded-lg overflow-hidden border border-border hover:shadow-md transition-all shadow-sm'>
                             <div className='aspect-2/3 relative bg-muted'>
                                 {r.poster && (

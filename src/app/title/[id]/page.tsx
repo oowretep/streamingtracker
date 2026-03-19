@@ -257,6 +257,13 @@ const TitlePage = async ({ params, searchParams }: TitlePageProps) => {
                 >
                     ← Back
                 </Link>
+            ) : from === 'releases' ? (
+                <Link
+                    href='/releases'
+                    className='text-sm text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-1 transition-colors'
+                >
+                    ← Back
+                </Link>
             ) : (
                 <Link
                     href='/'

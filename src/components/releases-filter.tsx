@@ -68,7 +68,7 @@ const ReleaseCard = ({ release }: { release: Release }) => {
     });
 
     return (
-        <Link href={`/title/${release.id}`}>
+        <Link href={`/title/${release.id}?from=releases`}>
             <div className='flex items-center gap-4 p-3 rounded-lg border border-border hover:bg-accent hover:shadow-md transition-all cursor-pointer shadow-sm'>
                 <div className='shrink-0 w-12 h-16 rounded overflow-hidden bg-muted'>
                     {release.poster ? (
