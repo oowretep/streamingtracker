@@ -18,7 +18,7 @@ interface Release {
 
 const ReleasesPage = async () => {
     const res = await fetch(`${process.env.BETTER_AUTH_URL}/api/releases`, {
-        cache: 'no-store',
+        next: { revalidate: 3600 },
     });
 
     const data = await res.json();

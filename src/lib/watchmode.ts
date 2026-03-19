@@ -99,6 +99,7 @@ const watchmode = {
     getReleases: async (sourceIds: string) => {
         const res = await fetch(
             `${BASE_URL}/releases/?apiKey=${API_KEY}&source_ids=${sourceIds}&release_date_start=${getDateDaysAgo(30)}&release_date_end=${getDateDaysAhead(30)}&limit=20`,
+            { next: { revalidate: 86400 } },
         );
 
         if (!res.ok) throw new Error('Failed to fetch release');

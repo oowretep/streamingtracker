@@ -13,8 +13,10 @@ const fetchPoster = async (
     if (!tmdbId) return null;
 
     const type = tmdbType === 'movie' ? 'movie' : 'tv';
+
     const res = await fetch(
         `${TMDB_BASE}/${type}/${tmdbId}?api_key=${TMDB_KEY}`,
+        { next: { revalidate: 86400 } }, // cache for 24 hours
     );
 
     if (!res.ok) return null;
