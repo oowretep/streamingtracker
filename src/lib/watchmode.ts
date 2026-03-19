@@ -81,6 +81,7 @@ const watchmode = {
     getTitle: async (id: string) => {
         const res = await fetch(
             `${BASE_URL}/title/${id}/details/?apiKey=${API_KEY}`,
+            { next: { revalidate: 86400 } },
         );
 
         if (!res.ok) throw new Error('Failed to fetch title details');
@@ -90,6 +91,7 @@ const watchmode = {
     getSources: async (id: string) => {
         const res = await fetch(
             `${BASE_URL}/title/${id}/sources/?apiKey=${API_KEY}`,
+            { next: { revalidate: 86400 } },
         );
 
         if (!res.ok) throw new Error('Failed to fetch streaming sources');
@@ -99,7 +101,7 @@ const watchmode = {
     getReleases: async (sourceIds: string) => {
         const res = await fetch(
             `${BASE_URL}/releases/?apiKey=${API_KEY}&source_ids=${sourceIds}&release_date_start=${getDateDaysAgo(30)}&release_date_end=${getDateDaysAhead(30)}&limit=20`,
-            { next: { revalidate: 86400 } },
+            { next: { revalidate: 3600 } },
         );
 
         if (!res.ok) throw new Error('Failed to fetch release');
