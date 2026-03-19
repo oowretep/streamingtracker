@@ -44,7 +44,7 @@ export const metadata: Metadata = {
         url: 'https://streamingtracker.vercel.app',
         images: [
             {
-                url: '../og-image.png',
+                url: 'https://streamingtracker.vercel.app/og-image.png',
                 width: 1200,
                 height: 630,
                 alt: 'Streaming Tracker',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Streaming Tracker',
         description: 'Find where to watch your favorite movies and shows.',
-        images: ['../og-image'],
+        images: ['https://streamingtracker.vercel.app/og-image.png'],
     },
 };
 
