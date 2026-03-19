@@ -57,6 +57,7 @@ interface TitleDetails {
 
 interface TitlePageProps {
     params: Promise<{ id: string }>;
+    searchParams: Promise<{ from?: string }>;
 }
 
 const QUALITY_RANK: Record<string, number> = {
@@ -170,8 +171,9 @@ const SourceSection = ({
     );
 };
 
-const TitlePage = async ({ params }: TitlePageProps) => {
+const TitlePage = async ({ params, searchParams }: TitlePageProps) => {
     const { id } = await params;
+    const { from } = await searchParams;
 
     const [detailsRes, sourcesRes, upcomingRes] = await Promise.all([
         fetch(`${process.env.BETTER_AUTH_URL}/api/title/${id}/details`, {
@@ -241,12 +243,21 @@ const TitlePage = async ({ params }: TitlePageProps) => {
 
     return (
         <main className='max-w-3xl mx-auto px-4 py-12'>
-            <Link
-                href='/'
-                className='text-sm text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-1 transition-colors'
-            >
-                ← Back to search
-            </Link>
+            {from === 'list' ? (
+                <Link
+                    href='/watchlist'
+                    className='text-sm text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-1 transition-colors'
+                >
+                    ← Back
+                </Link>
+            ) : (
+                <Link
+                    href='/'
+                    className='text-sm text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-1 transition-colors'
+                >
+                    ← Back
+                </Link>
+            )}
 
             <div
                 className='rounded-xl p-6 mb-6 border border-border shadow-sm'

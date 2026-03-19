@@ -111,7 +111,7 @@ const WatchlistSection = ({
                             key={item.id}
                         >
                             <Link
-                                href={`/title/${item.titleId}`}
+                                href={`/title/${item.titleId}?from=list`}
                                 className='flex items-center gap-4 flex-1 min-w-0 hover:opacity-80 transition-opacity'
                             >
                                 {item.poster ? (
