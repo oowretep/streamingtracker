@@ -1,42 +1,46 @@
-Streaming Tracker
+# 📺 Streaming Tracker
+
 A full-stack web application that helps users discover where to watch their favorite movies and TV shows across major streaming platforms including Netflix, Hulu, Disney+, Max, Prime Video, Apple TV+, Peacock, and Paramount+.
+
 Features include real-time search with type and decade filters, title detail pages with cast, director, ratings, and streaming availability grouped by subscription, rental, and purchase. Users can create a personal watchlist and favorites list, track watched status, and filter their lists by streaming platform. A dedicated New & Upcoming page surfaces recent additions and upcoming releases across all major platforms.
+
 Built with Next.js 15 (App Router), TypeScript, Tailwind CSS, and shadcn/ui on the frontend. The backend uses Next.js API routes connected to a Neon serverless PostgreSQL database via Drizzle ORM. Authentication is handled by Better Auth with Google OAuth. Content data is sourced from the Watchmode and TMDB APIs. Deployed on Vercel with server-side caching for optimized API usage.
 
-Frontend
+## Tech Stack
 
+**Frontend**
 - Next.js 15 (App Router)
 - TypeScript
 - Tailwind CSS
 - shadcn/ui + Radix UI
 
-Backend
-
+**Backend**
 - Next.js API Routes
 - Node.js (via Next.js)
 
-Database
-
+**Database**
 - Neon (serverless PostgreSQL)
 - Drizzle ORM
 
-Auth
-
+**Auth**
 - Better Auth (Google OAuth)
 
-External APIs
-
+**External APIs**
 - Watchmode API (streaming availability, releases)
 - TMDB API (posters, cast, crew)
 
-Deployment
-
+**Deployment**
 - Vercel
 
-Key Libraries
-
+**Key Libraries**
 - next-themes (dark/light mode)
 - @neondatabase/serverless
 - better-auth
 - drizzle-kit
 - zod
+
+## Rights & Ownership
+
+Copyright © 2026 Peter Woo. All rights reserved.
+
+This project and its source code are proprietary. Unauthorized copying, distribution, modification, or use of this software, in whole or in part, without express written permission from the owner is strictly prohibited.
