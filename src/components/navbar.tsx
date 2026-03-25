@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useSession, signOut, signIn } from '@/lib/auth-client';
 import { Button } from '@/components/ui/button';
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const ThemeToggle = dynamic(() => import('@/components/theme-toggle'), {
@@ -48,15 +48,26 @@ const SearchIcon = () => (
 );
 
 const Navbar = () => {
+    const [isDark, setIsDark] = useState(false);
+
     const { data: session } = useSession();
     const [open, setOpen] = useState(false);
     const [query, setQuery] = useState('');
     const router = useRouter();
 
     const close = () => setOpen(false);
-    const isDark =
-        typeof window !== 'undefined' &&
-        document.documentElement.classList.contains('dark');
+
+    useEffect(() => {
+        const check = () =>
+            setIsDark(document.documentElement.classList.contains('dark'));
+        check();
+        const observer = new MutationObserver(check);
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['class'],
+        });
+        return () => observer.disconnect();
+    }, []);
 
     const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter' && query.trim()) {

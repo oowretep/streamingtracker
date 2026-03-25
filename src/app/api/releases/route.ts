@@ -37,17 +37,6 @@ export const GET = async (req: NextRequest) => {
 
         const today = new Date().toISOString().split('T')[0].replace(/-/g, '');
 
-        console.log('today:', today);
-        console.log(
-            'release dates:',
-            releases.map(
-                (r: { source_release_date: string; title: string }) => ({
-                    title: r.title,
-                    date: r.source_release_date,
-                }),
-            ),
-        );
-
         const withPosters = await Promise.all(
             releases.map(
                 async (r: {
